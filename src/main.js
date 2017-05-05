@@ -5,6 +5,11 @@ import routes from './router/'
 import VueRouter from "vue-router"
 import stroe from './store/'
 
+import {Button} from "element-ui"
+
+
+Vue.use(Button)
+
 Vue.config.productionTip = false
 
 Vue.use(VueRouter)

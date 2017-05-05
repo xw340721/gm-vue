@@ -16,18 +16,21 @@
       <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
+
     </ul>
+      <el-button v-bind="{type:'warning',disabled:true}" >Hello world</el-button>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'hello',
-  data () {
+    import "element-ui/lib/theme-default/button.css"
+	export default {
+    name: 'hello',
+    data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
-  }
+  },
 }
 </script>
 
