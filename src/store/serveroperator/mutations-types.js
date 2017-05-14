@@ -1,0 +1,6 @@
+const PERFIX                     = "SERVEROPERATOR/";
+export const SETMIXSERVER        = PERFIX + "SETMIXSERVER";
+export const SETSERVER           = PERFIX + "SETSERVER";
+export const SETOPERATOR         = PERFIX + "SETOPERATOR";
+export const SAVECHOOSEMIXSERVER = PERFIX + "SAVECHOOSEMIXSERVER";
+export const SAVECHOOSERSERVER   = PERFIX + "SAVECHOOSERSERVER";

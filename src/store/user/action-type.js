@@ -1,4 +1,5 @@
 /**
  * Created by Administrator on 2017/5/6.
  */
-export const SUBMITLOGIN = "user/SUBMITLOGIN";
+export const SUBMITLOGIN    = "user/SUBMITLOGIN";
+export const CHANGEUSERGAME = "user/CHANGEUSERGAME";

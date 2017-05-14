@@ -1,6 +1,4 @@
-import {
-	REGISTER_USER,
-} from "./mutations-types";
+import {CHANGEUSERGAME, REGISTER_USER} from "./mutations-types";
 
 
 export default {

@@ -4,7 +4,7 @@
  */
 import mutations from "./mutations";
 import getters from "./getters";
-import actions from "./action"
+import actions from "./action";
 
 
 export default {
@@ -12,6 +12,7 @@ export default {
 		user:{
 			created_at: "",
 			game_id: undefined,
+			game_type: "",
 			game_ids: "",
 			group_id: "",
 			group_name: "",
