@@ -1,6 +1,5 @@
 <template>
     <el-col :span="5">
-
         <el-menu default-active="1-1" @item-click="itemCLick" @open="handleOpen"
                  @close="handleClose">
             <game-select></game-select>

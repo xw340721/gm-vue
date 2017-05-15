@@ -17,9 +17,9 @@
 </template>
 
 <script>
-	import {CHANGEUSERGAME} from "../store/user/action-type"
-	import {GETMIXSERVER} from "../store/serveroperator/action-type"
+	import {CHANGEUSERGAME} from "../store/user/action-type";
 	import {GetGame} from "../server/getData";
+	import {SAVECHOOSEMIXSERVER} from "../store/serveroperator/mutations-types"
 	export default {
 		created: function () {
 			var that = this;
@@ -53,9 +53,17 @@
 						break;
 					}
 				}
-				this.$store.dispatch(CHANGEUSERGAME, {gameId: value, type});
-
-//				this.$store.dispatch(GETMIXSERVER, this.$store.state.userModel.user.game_id);
+				this.$store.dispatch(CHANGEUSERGAME, {gameId: value, type}).then(()=>{
+					let errors = this.$store.state.errorModel;
+					if(!errors.code){
+						let h = this.$createElement
+						this.$notify.error({
+							title: errors.title,
+							message: errors.msg
+						});
+					}
+				})
+					
 			}
 		}
 	};

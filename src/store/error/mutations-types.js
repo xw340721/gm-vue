@@ -1,5 +1,7 @@
-export const LOGINERR = "ERROR/REGISTER_USER"
+const Perfix = "error/";
 
+export const LOGINERR = Perfix + "REGISTER_USER";
+export const SELECTGAMEERROR = Perfix + "SELECTGAMEERROR";
 
 
 
@@ -11,4 +13,4 @@ export const LOGINERR = "ERROR/REGISTER_USER"
 
 
 //common
-export const CLEANERROR="ERROR/CLEANERROR"
+export const CLEANERROR = Perfix + "CLEANERROR";

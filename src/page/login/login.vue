@@ -59,7 +59,6 @@
 		methods: {
 
 			submitLogin(){
-				console.log("rin");
 				let _this = this;
 				for (let k in this.validate) {
 					if (this.validate[k] == true) {

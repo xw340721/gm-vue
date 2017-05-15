@@ -7,18 +7,18 @@ import getters from "./getters";
 import actions from "./actions";
 
 let state = {
-	mix_server: [],
-	servers: [],
-	operator: [],
-	choose_server: undefined,
-	choose_operator: undefined,
-	choose_mix_server: undefined
+    mix_server: [],
+    servers: [],
+    operator: [],
+    choose_server: "",
+    choose_operator: "",
+    choose_mix_server: ""
 };
 
 
 export default {
-	actions,
-	state,
-	mutations,
-	getters,
+    actions,
+    state,
+    mutations,
+    getters,
 }

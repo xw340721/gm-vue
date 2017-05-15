@@ -6,14 +6,15 @@ import mutations from "./mutations";
 import getters from "./getters";
 
 let state = {
-	msg: "",
-	time: "",
-	code: undefined
+    title: "",
+    msg: "",
+    time: "",
+    code: 1
 };
 
 
 export default {
-	state,
-	mutations,
-	getters,
+    state,
+    mutations,
+    getters,
 }
