@@ -17,5 +17,14 @@ export default {
         state.msg = data;
         state.code = 0;
         state.time = new Date();
+    },
+    [mu.RESET](state) {
+        let orgin_state = {
+            title: "",
+            msg: "",
+            time: "",
+            code: 1
+        };
+        state = orgin_state;
     }
 }

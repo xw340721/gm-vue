@@ -1,5 +1,10 @@
 /**
  * Created by Administrator on 2017/5/6.
  */
-export const SUBMITLOGIN    = "user/SUBMITLOGIN";
-export const CHANGEUSERGAME = "user/CHANGEUSERGAME";
+
+
+const PERFIX = "user/action/";
+
+export const SUBMITLOGIN = PERFIX + "SUBMITLOGIN";
+export const CHANGEUSERGAME = PERFIX + "CHANGEUSERGAME";
+export const LOGOUT = PERFIX + "LOGOUT";

@@ -1,7 +1,7 @@
 import fetct from "../config/fetch";
 
 
-let getUser = () => fetct("GET", '', {
+let getUser = () => fetct("POST", '', {
     action: "login.getUser"
 })
 
@@ -12,7 +12,12 @@ let login = (user) => fetct("POST", '', {
     code: user.code
 })
 
-let GetGame = () => fetct("GET", '', {
+
+let Logout = () => fetct("POST", '', {
+    action: "login.logout",
+})
+
+let GetGame = () => fetct("POST", '', {
     action: "game.getList"
 })
 
@@ -40,6 +45,11 @@ let SetSelectGame = (gameId) => fetct("POST", '', {
     game_id: gameId
 })
 
+
+let GetMenus = () => fetct("POST", '', {
+    action: "main.getMenuList"
+})
+
 export {
     getUser,
     login,
@@ -47,5 +57,7 @@ export {
     GetMixServer,
     GetServer,
     GetOperator,
-    SetSelectGame
+    SetSelectGame,
+    Logout,
+    GetMenus
 };

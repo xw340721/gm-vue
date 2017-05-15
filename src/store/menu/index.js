@@ -4,17 +4,18 @@
  */
 import mutations from "./mutations";
 import getters from "./getters";
+import actions from "./action"
 
 let state = {
-	menus:{
-	
-	},
-	count:0
+    menus: {},
+    count: 0,
+    links: {}
 };
 
 
 export default {
-	state,
-	mutations,
-	getters,
+    state,
+    mutations,
+    getters,
+    actions
 }

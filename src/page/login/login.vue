@@ -85,9 +85,6 @@
 					_this.$router.push("/index");
 				});
 
-
-
-
 			},
 			resetForm(formName) {
 				this.$refs[formName].resetFields();

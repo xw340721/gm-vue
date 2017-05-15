@@ -2,12 +2,14 @@ export default {
     mix_server: function(state) {
         let mix_items = state.mix_server,
             options = [];
-        mix_items.forEach(function(value, key) {
-            let option = {};
-            option.value = value.opgame_id;
-            option.label = value.opgame_name
-            options.push(option);
-        });
+        if (mix_items.length) {
+            mix_items.forEach(function(value, key) {
+                let option = {};
+                option.value = value.opgame_id;
+                option.label = value.opgame_name
+                options.push(option);
+            });
+        }
         return options;
     },
     servers: function(state) {
@@ -33,7 +35,6 @@ export default {
         return servers;
     },
     operator: function(state, getter, store) {
-        //TODO 出现错误
         let orgin_operator = state.operator,
             operator = [];
         if (store.userModel.user.game_type == "m") {

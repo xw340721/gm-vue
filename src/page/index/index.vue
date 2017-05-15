@@ -35,14 +35,12 @@
 			}
 		},
         beforeUpdate:function () {
-
 			//todo 存储可能不是很好
 	        let keys = Object.keys(this.items);
 	        if(keys.length){
 		        keys = keys.pop();
 		        this.$router.push(this.items[keys]['src'])
 	        }
-
         },
 		components: {
 			headNav,
@@ -54,7 +52,9 @@
 			},
 			removeTab(targetName){
 				this.$store.commit(REMOVEITEM, targetName)
-				this.$router.back();
+				if(this.$router.currentRoute.path!="/index"){
+					this.$router.back();
+				}	
 			}
 		},
 

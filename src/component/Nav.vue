@@ -1,18 +1,15 @@
 <template>
-    <el-menu id="nav" theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal"
-             @select="handleSelect">
+    <el-menu id="nav" theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
         <el-menu-item index="1">
             GM后台管理系统
         </el-menu-item>
-        <select-group :mixserver_items="options" :server_items="options" :server_model="server_model" game_model=""
-                      :mix_model="mix_model" class="nav-item middle"></select-group>
+        <select-group  class="nav-item middle"></select-group>
         <el-submenu :style="{position:'absolute',right:'30px'}" index="3">
-
-            <template slot="title">系统</template>
+            <template slot="title">{{userName}}</template>
             <el-menu-item index="2-1">登陆日志</el-menu-item>
             <el-menu-item index="2-2">帮助文档</el-menu-item>
             <el-menu-item index="2-3">修改密码</el-menu-item>
-            <el-menu-item index="2-3">退出系统</el-menu-item>
+            <el-menu-item @click="logout" index="2-4"> 退出系统 </el-menu-item>
         </el-submenu>
     </el-menu>
 </template>
@@ -20,6 +17,7 @@
 
 <script>
 	import SelectGroup from "./SelectGroup"
+	import {LOGOUT} from "../store/user/action-type"
 	export default {
 		components: {
 			SelectGroup
@@ -41,33 +39,30 @@
 		data() {
 			return {
 				activeIndex: '1',
-				options: [{
-					value: '选项1',
-					label: '黄金糕'
-				}, {
-					value: '选项2',
-					label: '双皮奶'
-				}, {
-					value: '选项3',
-					label: '蚵仔煎'
-				}, {
-					value: '选项4',
-					label: '龙须面'
-				}, {
-					value: '选项5',
-					label: '北京烤鸭'
-				}],
-				mix_model: "",
-				server_model: "",
-
 			};
 		},
-		computed: function () {
+		computed:{
+			userName:function(){
+				return this.$store.state.userModel.user.username+"("+this.$store.state.userModel.user.realname+")"
+			}
 
 		},
 		methods: {
 			handleSelect: function (key, keyPath) {
 				console.log(key, keyPath);
+			},
+			logout:function(){
+				this.$confirm('确认是否退出登录?', '提示', {
+					confirmButtonText: '确定',
+					cancelButtonText: '取消',
+					type: 'warning'
+				}).then(() => {
+					this.$store.dispatch(LOGOUT).then(()=>{
+						this.$router.go("/login")
+					})
+				}).catch(()=>{
+
+				})
 			}
 		}
 	}

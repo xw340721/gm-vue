@@ -1,22 +1,24 @@
 import * as type from "./action-type";
 import * as server from "../../server/getData";
 import * as mu from "./mutations-types";
-import * as error from "../error/mutations-types";
+import * as er_mu from "../error/mutations-types";
 import * as so_mu from "../serveroperator/mutations-types";
+import * as menu_ac from "../menu/action-type"
 
 export default {
-    async RegisterUser({ commit, state }) {
-        // console.log(commit, state)
-    },
-    async [type.SUBMITLOGIN]({ commit, state }, user) {
+
+    async [type.SUBMITLOGIN]({ commit, state, dispatch }, user) {
         //触发clean
-        commit(error.CLEANERROR);
+        commit(er_mu.CLEANERROR);
         let data = await server.login(user);
         if (data.status) {
             commit(mu.REGISTER_USER, data.data);
         } else {
-            commit(error.LOGINERR, data);
+            commit(er_mu.LOGINERR, data);
         }
+
+        dispatch(menu_ac.GETMENUS);
+
     },
     async [type.CHANGEUSERGAME]({ commit, state }, { gameId, type }) {
 
@@ -27,7 +29,7 @@ export default {
         commit(so_mu.SAVECHOOSEOPERATOR, "")
 
         //触发clean
-        commit(error.CLEANERROR);
+        commit(er_mu.CLEANERROR);
 
         //发送更改游戏请求
         let response = await server.SetSelectGame(gameId);
@@ -49,7 +51,13 @@ export default {
             commit(so_mu.SETOPERATOR, operator.data.list);
             return
         }
-        commit(error.SELECTGAMEERROR, response.data);
+        commit(er_mu.SELECTGAMEer_mu, response.data);
+    },
+    async [type.LOGOUT]({ commit, state }) {
+        let response = await server.Logout()
+        commit(mu.RESET)
+        commit(so_mu.RESET)
+        commit(er_mu.RESET)
     }
 
 }

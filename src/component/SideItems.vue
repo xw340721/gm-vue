@@ -15,16 +15,24 @@
                 <el-menu-item index="1-4-1">选项1</el-menu-item>
             </el-submenu>
         </el-submenu>
-        <el-menu-item index="2"><i class="el-icon-menu"></i>导航二</el-menu-item>
-        <el-menu-item index="3"><i class="el-icon-setting"></i>导航三</el-menu-item>
+        {{menus}}
     </div>
 </template>
 
 <script>
+    import {mapGetters} from "vuex"
 	export default {
+        created:function(){
+           
+        },
 		data(){
 			return {}
 		},
+        computed:{
+           ...mapGetters({
+                menus:"getMenus"
+           })
+        }
 	}
 </script>
 

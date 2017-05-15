@@ -1,5 +1,5 @@
 <template>
-    <el-col :span="5">
+    <el-col :span="3">
         <el-menu default-active="1-1" @item-click="itemCLick" @open="handleOpen"
                  @close="handleClose">
             <game-select></game-select>
@@ -16,15 +16,15 @@
 	export default {
 		components: {ElRow, GameSelect, SideItems},
 		created: function () {
-			//
+			
 		},
 		data() {
 			return {
-				value4: "",
 			};
 		},
 		methods: {
 			itemCLick(self){
+				console.log("run");
 				var item = {
 					key: self.$el.getAttribute('item-key'),
 					value: {

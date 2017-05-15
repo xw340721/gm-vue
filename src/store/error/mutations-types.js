@@ -1,7 +1,7 @@
-const Perfix = "error/";
+const PERFIX = "error/mutations/";
 
-export const LOGINERR = Perfix + "REGISTER_USER";
-export const SELECTGAMEERROR = Perfix + "SELECTGAMEERROR";
+export const LOGINERR = PERFIX + "REGISTER_USER";
+export const SELECTGAMEERROR = PERFIX + "SELECTGAMEERROR";
 
 
 
@@ -13,4 +13,5 @@ export const SELECTGAMEERROR = Perfix + "SELECTGAMEERROR";
 
 
 //common
-export const CLEANERROR = Perfix + "CLEANERROR";
+export const CLEANERROR = PERFIX + "CLEANERROR";
+export const RESET = PERFIX + "RESET";
