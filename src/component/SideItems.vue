@@ -1,6 +1,5 @@
 <template>
     <div>
-
        <el-menu-item  :item-forbidden="true" item-src="/index" index="1">首页</el-menu-item>
        <template v-for="(menu, index) in menus" >
             <template v-if="menu.child" >
@@ -38,9 +37,7 @@
            })
         },
         methods:{
-            handleClose:function(index){
-                console.log(index);
-            }
+            
         }
 	}
 </script>

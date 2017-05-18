@@ -4,7 +4,8 @@ import Vue from "vue"
 import { getUser } from "../server/getData"
 let index = r => require.ensure([], () => r(require("../page/index/index")), "index")
 let login = r => require.ensure([], () => r(require("../page/login/login")), "login")
-
+let dataRes = r => require.ensure([], () => r(require("../page/log/dateRes")), "dataRes")
+let showGmLog = r => require.ensure([], () => r(require("../page/user/showGmLog")), "showGmLog")
 
 Vue.use(VueRouter)
 
@@ -20,8 +21,16 @@ const routes = [{
             path: "/index",
             name: "index",
             component: index,
-            children: [
-
+            children: [{
+                    path: "/log.DataRes",
+                    name: "dateRes",
+                    component: dataRes
+                },
+                {
+                    path: "/user.showGmLog",
+                    name: "showGmLog",
+                    component: showGmLog
+                },
             ]
         },
         {

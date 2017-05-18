@@ -4,7 +4,7 @@
         <el-row>
             <main-body></main-body>
             <el-col :span="19">
-                <el-tabs v-model="activeName" type="card" @tab-click="handleClick" @tab-remove="removeTab">
+                <el-tabs  type="card" @tab-click="handleClick" @tab-remove="removeTab">
                     <div v-if="count!=0">
                         <el-tab-pane v-for="(item,index) in items" :label="item.label" :name="index" :key="index" :closable="true">
                             <router-view></router-view>
@@ -23,7 +23,7 @@
 	export default {
 		data () {
 			return {
-				activeName: 'test'
+				
 			}
 		},
 		computed: {

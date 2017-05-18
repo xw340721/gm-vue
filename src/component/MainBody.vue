@@ -26,7 +26,6 @@
 				let src = self.$el.getAttribute("item-src").toLowerCase();
 				if(!self.$el.hasAttribute("item-forbidden")){
 					var item = {
-						key: self.$el.getAttribute('item-key'),
 						value: {
 							label: self.$el.innerText,
 							src: src,
