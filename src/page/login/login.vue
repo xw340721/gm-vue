@@ -39,6 +39,9 @@
 	import{codeImageUrl} from '../../config/env'
 	import{SUBMITLOGIN} from "../../store/user/action-type"
 	export default {
+        created:function(){
+           
+        },
 		data() {
 			return {
 				login: {

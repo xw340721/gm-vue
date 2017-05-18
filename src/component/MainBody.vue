@@ -1,7 +1,6 @@
 <template>
     <el-col :span="3">
-        <el-menu default-active="1-1" @item-click="itemCLick" @open="handleOpen"
-                 @close="handleClose">
+        <el-menu default-active="1-1" @item-click="itemCLick" :unique-opened="true">
             <game-select></game-select>
             <side-items></side-items>
         </el-menu>
@@ -24,25 +23,20 @@
 		},
 		methods: {
 			itemCLick(self){
-				console.log("run");
-				var item = {
-					key: self.$el.getAttribute('item-key'),
-					value: {
-						label: self.$el.innerText,
-						src: self.$el.getAttribute("item-src"),
-					}
-				};
-				this.$store.commit(ADDITEM, item);
-			},
-			handleOpen(key, keyPath) {
-				console.log("open", key, keyPath);
-			},
-			handleClose(key, keyPath) {
-				console.log("close", key, keyPath);
-			},
-			handleSelect: function (key, keyPath) {
-				console.log(key, keyPath);
-			},
+				let src = self.$el.getAttribute("item-src").toLowerCase();
+				if(!self.$el.hasAttribute("item-forbidden")){
+					var item = {
+						key: self.$el.getAttribute('item-key'),
+						value: {
+							label: self.$el.innerText,
+							src: src,
+						}
+					};
+					this.$store.commit(ADDITEM, item);
+					return 
+				}
+				this.$router.push(src);
+			}
 
 		}
 	}

@@ -10,7 +10,6 @@ export default {
             let index = menus.data.index;
             let list = menus.data.list;
             state.links = recursive(index[0], index, list)
-
         }
     }
 }
