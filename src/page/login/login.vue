@@ -1,7 +1,7 @@
 <template>
     <el-row id="login" align="middle">
         <el-col :offset="6" :span="12">
-            <el-form >
+            <el-form @keyup.enter="submitLogin">
                 <el-row>
                     <el-input :class="{error:validate.userErr}" type="text" @blur="checkUser" v-model="login.user"
                               auto-complete="off" placeholder="用户"></el-input>
@@ -18,15 +18,14 @@
                         <img :src="codeImage" v-bind:style="{width:'85%'}" v-on:click="changeEntryImg"/>
                     </el-col>
                     <el-col :span="18">
-                        <el-input v-model.number="login.code"></el-input>
-
+                        <el-input  v-model.number="login.code"></el-input>
                     </el-col>
                 </el-row>
 
                 <!--</el-form-item>-->
                 <el-form-item class="submit-group">
                     <el-col :offset="6" :span="10">
-                        <el-button type="primary" @click="submitLogin">提交</el-button>
+                        <el-button type="primary" @click="submitLogin" >提交</el-button>
                         <el-button @click="resetForm('ruleForm2')">重置</el-button>
                     </el-col>
                 </el-form-item>
@@ -39,9 +38,9 @@
 	import{codeImageUrl} from '../../config/env'
 	import{SUBMITLOGIN} from "../../store/user/action-type"
 	export default {
-        created:function(){
-           
-        },
+		created: function () {
+
+		},
 		data() {
 			return {
 				login: {
@@ -56,23 +55,22 @@
 				},
 			};
 		},
-		computed:{
-
-        },
+		computed: {},
 		methods: {
 
 			submitLogin(){
+				console.log("run");
 				let _this = this;
 				for (let k in this.validate) {
 					if (this.validate[k] == true) {
 						this.$message({
 							message: '请按照要求填写表单',
 							type: 'warning'
-                        })
+						})
 						return
 					}
 				}
-                let loginResult = this.$store.dispatch(SUBMITLOGIN, this.login);
+				let loginResult = this.$store.dispatch(SUBMITLOGIN, this.login);
 
 				//同步状态
 				loginResult.then(function () {
@@ -93,7 +91,7 @@
 				this.$refs[formName].resetFields();
 			},
 			changeEntryImg(){
-				this.codeImage = codeImageUrl+"/?" + Math.random();
+				this.codeImage = codeImageUrl + "/?" + Math.random();
 			},
 			checkUser(){
 				this.validate.userErr = this.login.user === "";

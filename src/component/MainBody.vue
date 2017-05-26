@@ -24,16 +24,7 @@
 		methods: {
 			itemCLick(self){
 				let src = self.$el.getAttribute("item-src").toLowerCase();
-				if(!self.$el.hasAttribute("item-forbidden")){
-					var item = {
-						value: {
-							label: self.$el.innerText,
-							src: src,
-						}
-					};
-					this.$store.commit(ADDITEM, item);
-					return 
-				}
+
 				this.$router.push(src);
 			}
 

@@ -1,6 +1,6 @@
 <template>
 
-<div>showGmLog</div>
+<div>GM操作日志</div>
 </template>
 
 
